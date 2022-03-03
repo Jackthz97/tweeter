@@ -19,6 +19,13 @@ const renderTweets = (tweets) => {
   }
 };
 
+// Escape function
+const escape = function (str) {
+  let div = document.createElement("div");
+  div.appendChild(document.createTextNode(str));
+  return div.innerHTML;
+};
+
 // Takes in a tweet object and is responsible for returning a tweet element containing the entire HTML structure of the tweet
 const createTweetElement = function(tweet) {
   let $tweet = $(`
@@ -31,7 +38,7 @@ const createTweetElement = function(tweet) {
         <p class="tweetHandle">${tweet.user.handle}</p>
       </article>
       <footer class="tweet-footer">
-        <a class="tweetText">${longTextChecker(tweet.content.text)}</a>
+        <a class="tweetText">${longTextChecker(escape(tweet.content.text))}</a>
         <p class="underline"></p>
       </footer>
       <div class="bottom-tags">
@@ -50,22 +57,18 @@ const createTweetElement = function(tweet) {
 
 // If the text exceeds the width of the post replace the rest of the text with '...'
 const longTextChecker = (text) => {
-  const maxLength = 57;
+  let newArray = text.split("");
+  const maxLength = 33;
   let string = "";
   let newText;
   if (text.length > maxLength) {
-    newText = text.slice(0,56);
-    console.log(newText);
-    string += newText + "...";
+    newText = newArray.slice(0,32);
+    string += newText.join('') + "...";
     return string;
   }
   return text;
 };
 
-// const loadTweets = () => {
-//   let userTweetData = $.ajax('/tweets', { method: 'GET' });
-//   return userTweetData;
-// };
 
 // Renders the tweets on startup
 $(() => {
@@ -90,7 +93,7 @@ $(() => {
     console.log("this stuff", event.target[0].value.length);
     if (textLength > 150) {
       alert("You exceeded the max word length!");
-      return event.target[0].value = null;
+      return event.target[0].value = Error;
     }
     $.post("/tweets", serializedData, (response) => {
       console.log("response", response);
