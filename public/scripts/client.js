@@ -58,11 +58,11 @@ const createTweetElement = function(tweet) {
 // If the text exceeds the width of the post replace the rest of the text with '...'
 const longTextChecker = (text) => {
   let newArray = text.split("");
-  const maxLength = 33;
+  const maxLength = 40;
   let string = "";
   let newText;
   if (text.length > maxLength) {
-    newText = newArray.slice(0,32);
+    newText = newArray.slice(0,39);
     string += newText.join('') + "...";
     return string;
   }
@@ -90,20 +90,27 @@ $(() => {
     event.preventDefault();
     const serializedData = $(event.target).serialize();
     const textLength = event.target[0].value.length;
-    console.log("this stuff", event.target[0].value.length);
-    if (textLength > 150) {
-      alert("You exceeded the max word length!");
-      return event.target[0].value = Error;
+    $("#submitTweet")[0].reset();
+    console.log("this stuff", textLength);
+    if (textLength === 0 || textLength === null) {
+      $(".errorMessage").text("Write some Tweets first!");
+      $(".errorMessage").addClass("errorMessageTrue");
+      $(".errorMessageTrue").slideDown("slow");
+      return;
+    }
+    if (textLength > 140) {
+      $(".errorMessage").text("Tweet too long!");
+      $(".errorMessage").addClass("errorMessageTrue");
+      return event.target[0].value = null;
+    } else {
+      $(".errorMessage").removeClass("errorMessageTrue");
     }
     $.post("/tweets", serializedData, (response) => {
       console.log("response", response);
       loadTweets();
     }).catch((err)=>{
       console.log("Error: ", err);
-      alert("You need to write somthing first!");
     });
-  }).catch((err) => {
-    console.log("Error: ", err);
   });
 
 });
