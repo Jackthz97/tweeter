@@ -21,7 +21,6 @@ const renderTweets = (tweets) => {
 
 // Takes in a tweet object and is responsible for returning a tweet element containing the entire HTML structure of the tweet
 const createTweetElement = function(tweet) {
-
   let $tweet = $(`
     <section class="tweetsPost">
         <article class="tweet-header">
@@ -54,9 +53,9 @@ const longTextChecker = (text) => {
   const maxLength = 57;
   let string = "";
   let newText;
-
   if (text.length > maxLength) {
     newText = text.slice(0,56);
+    console.log(newText);
     string += newText + "...";
     return string;
   }
@@ -87,11 +86,21 @@ $(() => {
   $("#submitTweet").submit(function(event) {
     event.preventDefault();
     const serializedData = $(event.target).serialize();
-    console.log(serializedData);
+    const textLength = event.target[0].value.length;
+    console.log("this stuff", event.target[0].value.length);
+    if (textLength > 150) {
+      alert("You exceeded the max word length!");
+      return event.target[0].value = null;
+    }
     $.post("/tweets", serializedData, (response) => {
-      console.log(response);
+      console.log("response", response);
       loadTweets();
+    }).catch((err)=>{
+      console.log("Error: ", err);
+      alert("You need to write somthing first!");
     });
+  }).catch((err) => {
+    console.log("Error: ", err);
   });
 
 });
