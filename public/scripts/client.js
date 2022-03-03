@@ -84,16 +84,25 @@ const longTextChecker = (text) => {
   return text;
 };
 
+// const loadTweets = () => {
+//   let userTweetData = $.ajax('/tweets', { method: 'GET' });
+//   return userTweetData;
+// };
+
 // Renders the tweets on startup
 $(() => {
   renderTweets(data);
   $("#submitTweet").submit(function(event) {
     event.preventDefault();
-    console.log($(this).serialize());
+    const serialized = event.target.serialize();
+    $.ajax({
+      type: "POST",
+      url: "/tweets",
+      data: serialized,
+      success: function(data) {
+        console.log("TEST",data);
+      }
+    });
   });
-  // $.ajax({
-  //   type: "POST",
-  //   url: "/tweets",
-  //   data: data,
-  // });
+
 });
