@@ -1,0 +1,93 @@
+#tweets-container {
+  display: flex;
+  flex-direction: column-reverse;
+}
+
+.tweetsPost{
+  border-style: solid;
+  border-color: 5px solid black;
+  width: 600px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  height: 175px;
+}
+
+.tweetsPost:hover {
+  box-shadow: 2px 6px;
+}
+
+.tweet-header {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.userInfo {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+.userFirstName {
+  margin: 15px;
+}
+
+
+.tweetHandle {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  margin: 15px;
+  color: rgba(197, 193, 193, 0.5);
+}
+
+
+.tweet-footer {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+}
+
+.underline { 
+  display: flex;
+  flex-direction: row;
+  border: 2px solid #000; width: 95%;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.tweetText{
+  margin-left: 20px;
+}
+
+.bottom-tags {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.postAge {
+  margin-top: 5px;
+  font-size: medium;
+  margin-left: 25px;
+}
+
+.icon {
+  font-size: 80%;
+  margin-bottom: 90px;
+  margin-top: 5px;
+  margin-right: 25px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.fa-solid {
+  margin-left: 5px;
+  background: none;
+}
+
+.fa-solid:hover{
+  color:#f8a100;
+}
