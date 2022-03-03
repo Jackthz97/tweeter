@@ -1,0 +1,42 @@
+.new-tweet {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bTC {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: 'Bungee Inline', cursive;
+}
+
+.tweetButton {
+  color: #FFFFFF;
+  background-color: #4056A1;
+}
+
+.tweetButton:hover {
+  box-shadow: 2.5px 5px #273562; 
+}
+
+#tweet-text {
+  display: flex;
+  justify-content: end;
+  background: transparent;
+  width: 600px;
+  margin-bottom: 10px;
+  border: none;
+  border-bottom: 5px solid #000000;
+}
+
+.exceeded-char-count {
+  color: red;
+}
+
+.errorMessage {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(172, 124, 124);
+}
