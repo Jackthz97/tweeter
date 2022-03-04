@@ -33,6 +33,13 @@ nav {
   /* Set the nav position to fixed */
   nav {
     position: fixed;
+    border: none;
+    border-bottom: 1px solid #000000;
+    background-image: url('/images/checkered-pattern.png');
     background-color: #4056A1;
+  }
+
+  nav:hover {
+    box-shadow: 1em -20px 40px 20px #4056A1;
   }
 }
