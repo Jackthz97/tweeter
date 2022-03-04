@@ -1,3 +1,4 @@
+/* Container for composing tweet */
 .new-tweet {
   display: flex;
   flex-direction: column;
@@ -5,6 +6,7 @@
   align-items: center;
 }
 
+/* Container for the tweet button and character counter */
 .bTC {
   display: flex;
   flex-direction: row;
@@ -12,6 +14,7 @@
   font-family: 'Bungee Inline', cursive;
 }
 
+/* Tweet button */
 .tweetButton {
   color: #FFFFFF;
   background-color: #4056A1;
@@ -21,6 +24,7 @@
   box-shadow: 2.5px 5px #273562; 
 }
 
+/* Text area */
 #tweet-text {
   display: flex;
   justify-content: end;
@@ -31,12 +35,24 @@
   border-bottom: 5px solid #000000;
 }
 
-.exceeded-char-count {
+/* Changes the character counter to red */
+.exceededCharCount {
   color: red;
 }
 
+/* Hides the error message */
 .errorMessage {
+  
+}
+
+/* Displays the error message */
+.errorMessageTrue {
+  color: red;
+  font-size: larger;
+  height: 40px;
+  border-style: solid;
+  border-color: rgb(255, 0, 0);
   display: flex;
   flex-direction: row;
-  background-color: rgb(172, 124, 124);
+  justify-content: center;
 }
