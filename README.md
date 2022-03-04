@@ -12,7 +12,17 @@ This repository is the starter code for the project: Students will fork and clon
 3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
 4. Go to <http://localhost:8080/> in your browser.
 
+## Final Product
+
+`Screenshot of urls page when the user is not logged in`
+![""](https://github.com/Jackthz97/tinyapp/blob/main/docs/urls-page-not-logged-in.png)
+
 ## Dependencies
 
-- Express
+- Express 4.13.4 or above
 - Node 5.10.x or above
+- Body-parser 1.15.2 or above
+- Chance 1.0.2 or above
+- Md5 2.1.0 or above
+- Timeago.js 4.0.2 or above
+- Nodemon 1.19.4 or above
