@@ -2,20 +2,21 @@
 
 Tweeter is a simple, single-page Twitter clone.
 
-This repository is the starter code for the project: Students will fork and clone this repository, then build upon it to practice their HTML, CSS, JS, jQuery and AJAX front-end skills, and their Node, Express back-end skills.
-
-## Getting Started
-
-1. [Create](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template) a new repository using this repository as a template.
-2. Clone your repository onto your local device.
-3. Install dependencies using the `npm install` command.
-3. Start the web server using the `npm run local` command. The app will be served at <http://localhost:8080/>.
-4. Go to <http://localhost:8080/> in your browser.
+This single-page AJAX-based Twitter clone was built using HTML5, CSS3, JS, jQuery, AJAX front-end, Node, and Express back-end.
 
 ## Final Product
 
-`Screenshot of urls page when the user is not logged in`
-![""](https://github.com/Jackthz97/tinyapp/blob/main/docs/urls-page-not-logged-in.png)
+`Screenshot of App in Desktop view`
+![""](https://github.com/Jackthz97/tweeter/blob/master/docs/Desktop-view.png)
+
+`Screenshot of App in Mobile view`
+![""](https://github.com/Jackthz97/tweeter/blob/master/docs/Mobile-view.png)
+
+`Screenshot of error message`
+![""](https://github.com/Jackthz97/tweeter/blob/master/docs/Error-display1.png)
+
+`Screenshot of more error message`
+![""](https://github.com/Jackthz97/tweeter/blob/master/docs/Error-display2.png)
 
 ## Dependencies
 
