@@ -6,7 +6,6 @@
 
 // Test / driver code (temporary). Eventually will get this from the server.
 
-
 // Renders the returned result from createTweetElement to the container
 const renderTweets = (tweets) => {
   const $form = $('#tweets-container');
@@ -72,6 +71,8 @@ const longTextChecker = (text) => {
 
 // Renders the tweets on startup
 $(() => {
+
+  // Performs GET requests to the server
   const loadTweets = () => {
     $.ajax({
       url: "/tweets",
@@ -86,25 +87,32 @@ $(() => {
     });
   };
   loadTweets();
+
+  // Handles the form submission
   $("#submitTweet").submit(function(event) {
-    event.preventDefault();
-    const serializedData = $(event.target).serialize();
-    const textLength = event.target[0].value.length;
-    $("#submitTweet")[0].reset();
-    console.log("this stuff", textLength);
+    event.preventDefault(); // Prevent the Default behaviour
+    const serializedData = $(event.target).serialize(); // Serialize the form data
+    const textLength = event.target[0].value.length; // length of the text
+    $("#submitTweet")[0].reset(); // Clears the textaera when submitted
+
+    // Displays error message when conditions are meet
     if (textLength === 0 || textLength === null) {
-      $(".errorMessage").text("Write some Tweets first!");
-      $(".errorMessage").addClass("errorMessageTrue");
-      $(".errorMessageTrue").slideDown("slow");
+      $(".errorMessage").text("⚠️ Write some Tweets first! ⚠️"); // Adds error msg to element
+      $(".errorMessage").addClass("errorMessageTrue"); // Adds class containing the CSS style to display error msg
+      $(".errorMessageTrue").hide().slideDown();  // Using the slideDown method to display the error msg to the page
       return;
     }
     if (textLength > 140) {
-      $(".errorMessage").text("Tweet too long!");
+      $(".errorMessage").text("⚠️ Exceeded max character limit of 140 ⚠️");
       $(".errorMessage").addClass("errorMessageTrue");
+      $(".errorMessageTrue").hide().slideDown();
       return event.target[0].value = null;
-    } else {
+    } else { // Resets the error msg
       $(".errorMessage").removeClass("errorMessageTrue");
+      $(".errorMessage").text("");
     }
+
+    // Submit a POST request to the server with the serializedData
     $.post("/tweets", serializedData, (response) => {
       console.log("response", response);
       loadTweets();
