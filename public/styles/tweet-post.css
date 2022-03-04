@@ -1,8 +1,10 @@
+/* Reverse the list so that the newest tweet gets created at the top */
 #tweets-container {
   display: flex;
   flex-direction: column-reverse;
 }
 
+/* Sets the container for the tweet */
 .tweetsPost{
   border-style: solid;
   border-color: 5px solid black;
@@ -13,10 +15,12 @@
   height: 175px;
 }
 
+/* Creats shadow for the tweet box */
 .tweetsPost:hover {
   box-shadow: 2px 6px;
 }
 
+/* User info avatar, name, handle */
 .tweet-header {
   margin-top: 15px;
   display: flex;
@@ -34,15 +38,13 @@
   margin: 15px;
 }
 
-
 .tweetHandle {
   display: flex;
   flex-direction: row;
   justify-content: end;
   margin: 15px;
-  color: rgba(197, 193, 193, 0.5);
+  color: rgba(66, 63, 63, 0.5);
 }
-
 
 .tweet-footer {
   margin-top: 15px;
@@ -50,6 +52,7 @@
   flex-direction: column;
 }
 
+/* A line on the tweet */
 .underline { 
   display: flex;
   flex-direction: row;
@@ -60,6 +63,7 @@
 
 .tweetText{
   margin-left: 20px;
+  font-size: 20px;
 }
 
 .bottom-tags {
@@ -74,6 +78,7 @@
   margin-left: 25px;
 }
 
+/* Aligns the tweet icons */
 .icon {
   font-size: 80%;
   margin-bottom: 90px;
@@ -83,11 +88,51 @@
   flex-direction: row;
   justify-content: space-between;
 }
+
 .fa-solid {
   margin-left: 5px;
   background: none;
 }
 
+/* Changes the icon's color when mouse hovers over */
 .fa-solid:hover{
   color:#f8a100;
+}
+
+/* Desktop View */
+@media only screen and (min-width: 1024px) {
+
+/* Mouse-out transition effect on the tweet posts */
+/* Effect animation from (https://codepen.io/argyleink/pen/poEjvpd) by Adam Argyle*/
+.tweetsPost::before {  
+  transform: scaleX(0);
+  transform-origin: bottom right;
+}
+
+.tweetsPost:hover::before {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.tweetsPost::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+  inset: 0 0 0 0;
+  background: #c3cdee;
+  z-index: -1;
+  transition: transform .3s ease;
+}
+
+.tweetsPost {
+  position: relative;
+}
+
+@media (orientation: landscape) {
+  body {
+    grid-auto-flow: column;
+  }
+}
+
 }
