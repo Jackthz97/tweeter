@@ -99,7 +99,6 @@ $(() => {
       $(".errorMessage").text("⚠️ Write some Tweets first! ⚠️"); // Adds error msg to element
       $(".errorMessage").addClass("errorMessageTrue"); // Adds class containing the CSS style to display error msg
       $(".errorMessageTrue").hide().slideDown();  // Using the slideDown method to display the error msg to the page
-      $("#submitTweet")[0].reset(); // Clears the textaera when submitted
       return;
     }
     if (textLength > 140) {
