@@ -7,9 +7,15 @@ $(() => {
     const counter = $(this).siblings().children().last();
     counter.text(remainingChars);
     changeCounterStyle(counter, remainingChars);
-    $("button").on("click", function() {
-      $(".counter").text("140"); // Resets the counter after every tweet
-    });
+  });
+
+  // Clears character counter
+  $("button").on("click", function() {
+    let char = $(".counter").text();
+    let charLength = Math.floor(char);
+    if (charLength >= 0) {
+      $(".counter").text("140");
+    }
   });
 });
 
