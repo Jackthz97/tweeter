@@ -93,23 +93,24 @@ $(() => {
     event.preventDefault(); // Prevent the Default behaviour
     const serializedData = $(event.target).serialize(); // Serialize the form data
     const textLength = event.target[0].value.length; // length of the text
-    $("#submitTweet")[0].reset(); // Clears the textaera when submitted
 
     // Displays error message when conditions are meet
     if (textLength === 0 || textLength === null) {
       $(".errorMessage").text("⚠️ Write some Tweets first! ⚠️"); // Adds error msg to element
       $(".errorMessage").addClass("errorMessageTrue"); // Adds class containing the CSS style to display error msg
       $(".errorMessageTrue").hide().slideDown();  // Using the slideDown method to display the error msg to the page
+      $("#submitTweet")[0].reset(); // Clears the textaera when submitted
       return;
     }
     if (textLength > 140) {
       $(".errorMessage").text("⚠️ Exceeded max character limit of 140 ⚠️");
       $(".errorMessage").addClass("errorMessageTrue");
       $(".errorMessageTrue").hide().slideDown();
-      return event.target[0].value = null;
+      return;
     } else { // Resets the error msg
       $(".errorMessage").removeClass("errorMessageTrue");
       $(".errorMessage").text("");
+      $("#submitTweet")[0].reset(); // Clears the textaera when submitted
     }
 
     // Submit a POST request to the server with the serializedData
