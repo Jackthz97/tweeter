@@ -11,7 +11,6 @@ const renderTweets = (tweets) => {
   const $form = $('#tweets-container');
   $form.empty();
   for (let tweet of tweets) {
-    console.log(tweet);
     const userTweet = createTweetElement(tweet);
     // to add it to the page so we can make sure it's got all the right elements, classes, etc.
     $form.append(userTweet);
@@ -101,8 +100,7 @@ $(() => {
     }
 
     // Submit a POST request to the server with the serializedData
-    $.post("/tweets", serializedData, (response) => {
-      console.log("response", response);
+    $.post("/tweets", serializedData, () => {
       loadTweets();
     }).catch((err)=>{
       console.log("Error: ", err);
