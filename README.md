@@ -14,16 +14,16 @@ This single-page AJAX-based Twitter clone was built using HTML5, CSS3, JS, jQuer
 
 ## Final Product
 
-Screenshot of App in Desktop view
+1. Screenshot of App in Desktop view
 ![""](https://github.com/Jackthz97/tweeter/blob/master/docs/Desktop-view.png)
 
-Screenshot of App in Mobile view
+2. Screenshot of App in Mobile view
 ![""](https://github.com/Jackthz97/tweeter/blob/master/docs/Mobile-view.png)
 
-Screenshot of error message
+3. Screenshot of error message
 ![""](https://github.com/Jackthz97/tweeter/blob/master/docs/Error-display1.png)
 
-Screenshot of more error message
+4. Screenshot of more error message
 ![""](https://github.com/Jackthz97/tweeter/blob/master/docs/Error-display2.png)
 
 ## Dependencies
