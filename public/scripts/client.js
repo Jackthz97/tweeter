@@ -37,9 +37,10 @@ const createTweetElement = function(tweet) {
         <p class="tweetHandle">${tweet.user.handle}</p>
       </article>
       <footer class="tweet-footer">
-        <a class="tweetText">${longTextChecker(escape(tweet.content.text))}</a>
+        <div class="tweet-text-box">
+          <a class="tweetText">${escape(tweet.content.text)}</a>
+        </div>
         <p class="underline"></p>
-      </footer>
       <div class="bottom-tags">
         <p class="postAge">${timeago.format(tweet.created_at)}</p>
         <div class="icon">
@@ -48,24 +49,11 @@ const createTweetElement = function(tweet) {
           <i id="heart" class="fa-solid fa-heart"></i>
         </div>
       </div>
+      </footer>
     </section>
   `);
 
   return $tweet;
-};
-
-// If the text exceeds the width of the post replace the rest of the text with '...'
-const longTextChecker = (text) => {
-  let newArray = text.split("");
-  const maxLength = 40;
-  let string = "";
-  let newText;
-  if (text.length > maxLength) {
-    newText = newArray.slice(0,39);
-    string += newText.join('') + "...";
-    return string;
-  }
-  return text;
 };
 
 
