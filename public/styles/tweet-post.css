@@ -12,7 +12,7 @@
   margin-top: 10px;
   display: flex;
   flex-direction: column;
-  height: 175px;
+  height: 190px;
 }
 
 /* Creats shadow for the tweet box */
@@ -54,16 +54,20 @@
 
 /* A line on the tweet */
 .underline { 
-  display: flex;
-  flex-direction: row;
   border: 2px solid #000; width: 95%;
   margin: auto;
   margin-top: 15px;
 }
 
-.tweetText{
+.tweetText{ 
   margin-left: 20px;
-  font-size: 20px;
+  font-size: 15px;
+}
+
+.tweet-text-box {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .bottom-tags {
@@ -86,7 +90,6 @@
   margin-right: 25px;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
 }
 
 .fa-solid {
